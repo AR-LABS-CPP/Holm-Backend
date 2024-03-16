@@ -10,13 +10,13 @@ app = Flask(__name__)
 CORS(app)
 logging.basicConfig(level=logging.DEBUG)
 
-openai.api_key = "OPEN_AI_API_KEY"
+openai.api_key = os.environ["OPEN_AI_API_KEY"]
 
 client = anthropic.Client(
-    api_key="ANTHROPIC_API_KEY"
+    api_key=os.environ["ANTHROPIC_API_KEY"]
 )
 
-mongo_client = get_mongo_client("MONGO_URI")
+mongo_client = get_mongo_client(os.environ["MONGO_URI"])
 database = mongo_client["medical_data"]
 collection = database["medical_data_collection"]
 
