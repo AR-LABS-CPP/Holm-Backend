@@ -26,3 +26,6 @@ def respond():
     response, source_information = handle_user_query(question, collection, client)
 
     return response
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=7173)
